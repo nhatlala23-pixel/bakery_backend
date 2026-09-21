@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: backend_tttn
+  datasource:
+    url: jdbc:mysql://localhost:3306/bakery?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: 
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        "[format_sql]": true
+        "[dialect]": org.hibernate.dialect.MySQLDialect
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: Nhatlala23@gmail.com
+    password: cngwognldmfrutcu
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            trust: smtp.gmail.com
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  mvc:
+    static-path-pattern: /uploads/**
+
+tttn:
+  upload:
+    dir: uploads
+  jwt:
+    secret: "======================BackendTTTNSecretKeyByAntigravity======================"
+    expirationMs: 3600000 # 1 hour
+    refreshExpirationMs: 604800000 # 7 days
+  google:
+    clientId: 1055565534460-ksqgqd6ltlvpgbc0jb06fokpv5ndgirt.apps.googleusercontent.com
+  momo:
+    partnerCode: MOMO
+    accessKey: F8BBA842ECF85
+    secretKey: K951B6PE1waDMi640xX08PD3vg6EkVlz
+    apiUrl: https://test-payment.momo.vn/v2/gateway/api/create
+    returnUrl: http://127.0.0.1:5173/checkout/result
+    notifyUrl: https://webhook.site/6476cdfc-bd2a-46a3-810e-3b97145a2e43
